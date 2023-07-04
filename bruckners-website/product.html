@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,300;1,300&family=Roboto+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="bruckners-css/header.css"/>
+  <link rel="stylesheet" href="bruckners-css/general.css"/>
+  <link rel="stylesheet" href="bruckners-css/product.css"/>
+  <title>sketch</title>
+</head>
+
+
+<body>
+  <a href="index.html" class="bruckners-container"><img class="bruckners" src="images-logos/logo1.png"></a>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="categories.html" class="nav-link">Objects</a>
+    <a href="about.html" class="nav-link">About Us</a>
+    <a href="#" class="nav-link with-dropdown">
+      More <img src="images-logos/down-arrow.png" alt="d" class="nav-icon">
+    </a>
+    <div class="nav-dropdown" id="nav-dropdown">
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+  </nav>
+  <script src="bruckners-js/navbar.js"></script>
+
+  <div class="product-container"> 
+    <div class="slideshow-container">
+      <div class="slide">
+        <img src="images-logos/tárgy-1.jpg">
+      </div>
+      <div class="slide">
+        <img src="images-logos/tárgy-2.jpg">
+      </div>
+      <div class="slide">
+        <img src="images-logos/tárgy-3.jpg">
+      </div>
+      <div class="slide">
+        <img src="images-logos/tárgy-4.jpg">
+      </div>
+      <a class="prev">&#10094;</a>
+      <a class="next">&#10095;</a>
+    </div>
+    <script src="bruckners-js/slideshow.js"></script>
+
+    <div class="description-container">
+      <div class="product-titleContainer">
+        <p class="product-title">This is a title</p>
+      </div>
+      <div class="product-descriptionContainer">
+      <p class="product-description">&#xB7; and this is the description</p>
+      </div>
+      <div class="request-buttonContainer">
+      <a href="#form" class="request-button">REQUEST</a>
+      </div>
+    </div>
+
+
+  </div>
+
+  <div id="form" class="form-container">
+    <form onsubmit="sendEmail(); reset(); return false;">
+      <p>Get in touch</p>
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Email id" required>
+      <input type="text" id="phone" placeholder="Phone no." required>
+      <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>        <button type="submit">Send</button>
+     </form>
+  </div>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    function sendEmail(){
+      Email.send({
+       SecureToken : "ad907eec-1a27-4c5c-97d5-545ef0eebade",
+       To : "matebukari@gmail.com",
+       From : "matebukari@gmail.com",
+       Subject : "New Contact Form Enquiry",
+       Body : "Name: " + document.getElementById("name").value
+        + "<br> Email: " + document.getElementById("email").value
+        + "<br> Phone no: " + document.getElementById("phone").value
+        + "<br> Message: " + document.getElementById("message").value
+      }).then(
+       message => alert("message sent successfully")
+      );
+    }
+  </script>
+</body>
+</html>

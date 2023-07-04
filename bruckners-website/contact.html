@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="bruckners-css/header.css"/>
+  <link rel="stylesheet" href="bruckners-css/main.css"/>
+  <link rel="stylesheet" href="bruckners-css/general.css"/>
+  <link rel="stylesheet" href="bruckners-css/contact.css"/>
+  <title>bálint-sketch</title>
+</head>
+
+
+<body>
+  <a href="index.html" class="bruckners-container"><img class="bruckners" src="images-logos/logo1.png"></a>
+
+  <nav class="nav">
+    <a href="index.html" class="nav-link">Home</a>
+    <a href="categories.html" class="nav-link">Objects</a>
+    <a href="about.html" class="nav-link">About Us</a>
+    <a href="#" class="nav-link with-dropdown">
+      More <img src="images-logos/down-arrow.png" alt="d" class="nav-icon">
+    </a>
+    <div class="nav-dropdown" id="nav-dropdown">
+      <a href="blog.html" class="nav-link">Blog</a>
+      <a href="contact.html" class="nav-link">Contact</a>
+    </div>
+  </nav>
+  <script src="bruckners-js/navbar.js"></script>
+
+  <div class="about-container">
+    <p class="about-paragraph">Nestled in the heart of Vienna's picturesque Piaristengasse, and situated within the antique center of Budapest's illustrious Falk Miksa street, you will find Bruckner's - a haven of rare and exceptional antique treasures. So whether you find yourself in Vienna or Budapest, we invite you to step inside our doors and discover the magic of Bruckner's for yourself. Our knowledgeable and attentive staff are always on hand to guide you through our latest acquisitions, and to assist you in selecting the perfect piece to add to your collection or to adorn your home.
+    </p>
+
+  </div>
+
+  <div class="form-container">
+    <form onsubmit="sendEmail(); reset(); return false;">
+      <p>Get in touch</p>
+      <input type="text" id="name" placeholder="Your Name" required>
+      <input type="email" id="email" placeholder="Email id" required>
+      <input type="text" id="phone" placeholder="Phone no." required>
+      <textarea id="message" rows="4" placeholder="How can we help you?"></textarea>        <button type="submit">Send</button>
+     </form>
+  </div>
+  <script src="https://smtpjs.com/v3/smtp.js"></script>
+  <script>
+    function sendEmail(){
+      Email.send({
+       SecureToken : "691196e6-2cac-489b-9ebe-02f7d4baad97",
+       To : "bruckners.contact@gmail.com",
+       From : "bruckners.contact@gmail.com",
+       Subject : "New Contact Form Enquiry",
+       Body : "Name: " + document.getElementById("name").value
+        + "<br> Email: " + document.getElementById("email").value
+        + "<br> Phone no: " + document.getElementById("phone").value
+        + "<br> Message: " + document.getElementById("message").value
+      }).then(
+       message => alert("message sent successfully")
+      );
+    }
+  </script>
+
+  <div class="about-container">
+    <p class="about-paragraph">
+      Our Viennese gallery may only be visited by appointment in advance. Let us know when you'd like to come and we'll be happy to accommodate you.
+    </p>
+  </div>
+
+</body>
+</html>
